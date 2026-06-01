@@ -1,5 +1,10 @@
 # Job Application Tracker
 
+[![CI](https://github.com/kamarajendra/job-application-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kamarajendra/job-application-tracker/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/kamarajendra/job-application-tracker)](https://github.com/kamarajendra/job-application-tracker/releases)
+[![License](https://img.shields.io/github/license/kamarajendra/job-application-tracker)](https://github.com/kamarajendra/job-application-tracker/blob/main/LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-4f7d55)](https://job-application-tracker-lemon-nine.vercel.app)
+
 Job Application Tracker is a local-first Next.js dashboard for tracking companies, roles, statuses, follow-up dates, notes, and contacts. It uses a SQLite-oriented data layer and can export visible records as CSV.
 
 ## Screenshot
