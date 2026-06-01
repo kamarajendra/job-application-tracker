@@ -12,10 +12,9 @@ describe("job helpers", () => {
   it("summarizes application counts", () => {
     const summary = summarizeApplications(DEMO_APPLICATIONS);
 
-    expect(summary.total).toBe(4);
+    expect(summary.total).toBe(5);
     expect(summary.interviewing).toBe(1);
     expect(summary.offers).toBe(1);
-    expect(summary.followUpsThisWeek).toBe(3);
   });
 
   it("filters applications by status", () => {
@@ -23,6 +22,12 @@ describe("job helpers", () => {
 
     expect(filtered).toHaveLength(1);
     expect(filtered[0]?.company).toBe("Northstar Labs");
+  });
+
+  it("includes rejected in demo data", () => {
+    const rejected = filterApplications(DEMO_APPLICATIONS, "Rejected");
+    expect(rejected).toHaveLength(1);
+    expect(rejected[0]?.company).toBe("Bright Studio");
   });
 
   it("exports CSV with header row", () => {

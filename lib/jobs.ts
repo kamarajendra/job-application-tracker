@@ -67,6 +67,19 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
     notes: "Hiring freeze for two weeks.",
     priority: "Low",
   },
+  {
+    id: "job-5",
+    company: "Bright Studio",
+    role: "Creative Developer",
+    status: "Rejected",
+    appliedOn: "2026-05-10",
+    followUpOn: "2026-05-24",
+    location: "San Francisco",
+    contactName: "Tom Adler",
+    contactEmail: "tom@brightstudio.io",
+    notes: "Passed first round, rejected after take-home. Good experience overall.",
+    priority: "Medium",
+  },
 ];
 
 export function summarizeApplications(applications: JobApplication[]) {
