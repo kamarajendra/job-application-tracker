@@ -2,6 +2,10 @@
 
 Job Application Tracker is a local-first Next.js dashboard for tracking companies, roles, statuses, follow-up dates, notes, and contacts. It uses a SQLite-oriented data layer and can export visible records as CSV.
 
+## Screenshot
+
+![Job Application Tracker dashboard](public/screenshots/job-tracker-dashboard.png)
+
 ## Why it exists
 
 Job searches get messy fast. Notes live in one place, follow-up dates in another, and export is usually an afterthought. This project packages the essentials into a focused local-first dashboard that feels practical without requiring a hosted backend.
