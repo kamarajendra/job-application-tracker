@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: oklch(0.982 0.004 220);
+  --foreground: oklch(0.24 0.016 255);
+  --color-canvas: oklch(0.968 0.007 220);
+  --color-panel: oklch(0.992 0.003 220);
+  --color-border: oklch(0.89 0.01 255);
+  --color-muted: oklch(0.57 0.02 255);
+  --color-accent: oklch(0.57 0.13 245);
+  --color-accent-soft: oklch(0.95 0.025 245);
+  --color-success: oklch(0.71 0.16 155);
+  --color-warning: oklch(0.77 0.14 85);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
