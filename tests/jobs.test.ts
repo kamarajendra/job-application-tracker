@@ -36,4 +36,8 @@ describe("job helpers", () => {
     expect(searchApplications(DEMO_APPLICATIONS, "london")).toHaveLength(1);
     expect(searchApplications(DEMO_APPLICATIONS, "product engineer")[0]?.company).toBe("Paper Kite");
   });
+
+  it("includes priority on demo records", () => {
+    expect(DEMO_APPLICATIONS.some((application) => application.priority === "High")).toBe(true);
+  });
 });

@@ -24,6 +24,17 @@ function statusTone(status: JobStatus) {
   }
 }
 
+function priorityTone(priority: "High" | "Medium" | "Low") {
+  switch (priority) {
+    case "High":
+      return { background: "color-mix(in oklab, var(--color-warning) 18%, transparent)", color: "oklch(0.52 0.1 85)" };
+    case "Low":
+      return { background: "color-mix(in oklab, var(--color-accent) 12%, transparent)", color: "var(--color-accent)" };
+    default:
+      return { background: "color-mix(in oklab, var(--color-success) 14%, transparent)", color: "var(--color-success)" };
+  }
+}
+
 export function JobTrackerApp() {
   const [selectedStatus, setSelectedStatus] = useState<JobStatus | "All">("All");
   const [query, setQuery] = useState("");
@@ -129,6 +140,9 @@ export function JobTrackerApp() {
                     <td className="px-4 py-4">
                       <div className="font-medium">{application.company}</div>
                       <div className="mt-1 text-xs text-[var(--color-muted)]">{application.location}</div>
+                      <span className="mt-2 inline-flex rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em]" style={priorityTone(application.priority)}>
+                        {application.priority} priority
+                      </span>
                     </td>
                     <td className="px-4 py-4">{application.role}</td>
                     <td className="px-4 py-4">
@@ -164,6 +178,10 @@ export function JobTrackerApp() {
                 <div>
                   <dt className="font-medium text-[var(--foreground)]">Applied</dt>
                   <dd className="mt-1">{application.appliedOn}</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-[var(--foreground)]">Priority</dt>
+                  <dd className="mt-1">{application.priority}</dd>
                 </div>
                 <div>
                   <dt className="font-medium text-[var(--foreground)]">Notes</dt>
