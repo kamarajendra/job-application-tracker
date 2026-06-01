@@ -81,6 +81,21 @@ export function filterApplications(applications: JobApplication[], status: JobSt
   return applications.filter((application) => application.status === status);
 }
 
+export function searchApplications(applications: JobApplication[], query: string) {
+  const normalized = query.trim().toLowerCase();
+
+  if (!normalized) {
+    return applications;
+  }
+
+  return applications.filter((application) =>
+    [application.company, application.role, application.location]
+      .join(" ")
+      .toLowerCase()
+      .includes(normalized),
+  );
+}
+
 export function exportApplicationsCsv(applications: JobApplication[]) {
   const header = [
     "company",

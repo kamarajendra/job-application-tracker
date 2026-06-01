@@ -4,6 +4,7 @@ import {
   DEMO_APPLICATIONS,
   exportApplicationsCsv,
   filterApplications,
+  searchApplications,
   summarizeApplications,
 } from "@/lib/jobs";
 
@@ -29,5 +30,10 @@ describe("job helpers", () => {
 
     expect(csv).toContain('"company","role","status"');
     expect(csv).toContain("Northstar Labs");
+  });
+
+  it("searches across company, role, and location", () => {
+    expect(searchApplications(DEMO_APPLICATIONS, "london")).toHaveLength(1);
+    expect(searchApplications(DEMO_APPLICATIONS, "product engineer")[0]?.company).toBe("Paper Kite");
   });
 });

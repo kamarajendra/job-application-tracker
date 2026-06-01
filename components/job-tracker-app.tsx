@@ -6,6 +6,7 @@ import {
   DEMO_APPLICATIONS,
   exportApplicationsCsv,
   filterApplications,
+  searchApplications,
   summarizeApplications,
   type JobStatus,
 } from "@/lib/jobs";
@@ -25,11 +26,12 @@ function statusTone(status: JobStatus) {
 
 export function JobTrackerApp() {
   const [selectedStatus, setSelectedStatus] = useState<JobStatus | "All">("All");
+  const [query, setQuery] = useState("");
 
-  const applications = useMemo(
-    () => filterApplications(DEMO_APPLICATIONS, selectedStatus),
-    [selectedStatus],
-  );
+  const applications = useMemo(() => {
+    const filtered = filterApplications(DEMO_APPLICATIONS, selectedStatus);
+    return searchApplications(filtered, query);
+  }, [query, selectedStatus]);
   const summary = useMemo(() => summarizeApplications(DEMO_APPLICATIONS), []);
 
   function handleExport() {
@@ -83,6 +85,13 @@ export function JobTrackerApp() {
               <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">Filter by status, then export the visible results as CSV.</p>
             </div>
             <div className="flex gap-3">
+              <input
+                aria-label="Search applications"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search company, role, or location"
+                className="min-w-0 rounded-2xl border border-[var(--color-border)] bg-[var(--color-canvas)] px-4 py-3 outline-none"
+              />
               <select
                 value={selectedStatus}
                 onChange={(event) => setSelectedStatus(event.target.value as JobStatus | "All")}
