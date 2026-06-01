@@ -6,6 +6,10 @@ Job Application Tracker is a local-first Next.js dashboard for tracking companie
 
 ![Job Application Tracker dashboard](public/screenshots/job-tracker-dashboard.png)
 
+## Live demo
+
+https://job-application-tracker-lemon-nine.vercel.app
+
 ## Why it exists
 
 Job searches get messy fast. Notes live in one place, follow-up dates in another, and export is usually an afterthought. This project packages the essentials into a focused local-first dashboard that feels practical without requiring a hosted backend.

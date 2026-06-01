@@ -11,6 +11,7 @@ export type JobApplication = {
   contactName: string;
   contactEmail: string;
   notes: string;
+  priority: "High" | "Medium" | "Low";
 };
 
 export const DEMO_APPLICATIONS: JobApplication[] = [
@@ -25,6 +26,7 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
     contactName: "Lena Shaw",
     contactEmail: "lena@northstar.dev",
     notes: "Second-round panel booked. They care a lot about design systems.",
+    priority: "High",
   },
   {
     id: "job-2",
@@ -37,6 +39,7 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
     contactName: "Omar Diaz",
     contactEmail: "omar@paperkite.co",
     notes: "Sent portfolio link and case study.",
+    priority: "Medium",
   },
   {
     id: "job-3",
@@ -49,6 +52,7 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
     contactName: "Nina Fox",
     contactEmail: "nina@cloudcurrent.io",
     notes: "Offer received, reviewing package.",
+    priority: "High",
   },
   {
     id: "job-4",
@@ -61,6 +65,7 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
     contactName: "Maya Chen",
     contactEmail: "maya@signalforge.com",
     notes: "Hiring freeze for two weeks.",
+    priority: "Low",
   },
 ];
 
