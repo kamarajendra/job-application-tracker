@@ -70,11 +70,16 @@ export const DEMO_APPLICATIONS: JobApplication[] = [
 ];
 
 export function summarizeApplications(applications: JobApplication[]) {
+  const today = new Date();
+  const endOfWeek = new Date(today);
+  endOfWeek.setDate(today.getDate() + (7 - today.getDay()));
+  const endOfWeekStr = endOfWeek.toISOString().split("T")[0];
+
   return {
     total: applications.length,
     interviewing: applications.filter((application) => application.status === "Interviewing").length,
     offers: applications.filter((application) => application.status === "Offer").length,
-    followUpsThisWeek: applications.filter((application) => application.followUpOn <= "2026-06-07").length,
+    followUpsThisWeek: applications.filter((application) => application.followUpOn <= endOfWeekStr).length,
   };
 }
 
