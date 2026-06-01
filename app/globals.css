@@ -1,38 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: oklch(0.982 0.004 220);
-  --foreground: oklch(0.24 0.016 255);
-  --color-canvas: oklch(0.968 0.007 220);
-  --color-panel: oklch(0.992 0.003 220);
-  --color-border: oklch(0.89 0.01 255);
-  --color-muted: oklch(0.57 0.02 255);
-  --color-accent: oklch(0.57 0.13 245);
-  --color-accent-soft: oklch(0.95 0.025 245);
-  --color-success: oklch(0.71 0.16 155);
-  --color-warning: oklch(0.77 0.14 85);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: oklch(0.97 0.005 220);
+  --foreground: oklch(0.24 0.02 255);
+  --color-canvas: oklch(0.97 0.005 220);
+  --color-panel: oklch(0.994 0.003 220);
+  --color-sidebar: oklch(0.94 0.008 220);
+  --color-border: oklch(0.88 0.01 255);
+  --color-muted: oklch(0.55 0.02 255);
+  --color-accent: oklch(0.58 0.14 195);
+  --color-accent-soft: oklch(0.94 0.04 195);
+  --color-accent-2: oklch(0.64 0.18 25);
+  --color-accent-2-soft: oklch(0.94 0.06 25);
+  --color-success: oklch(0.7 0.16 155);
+  --color-warning: oklch(0.75 0.14 85);
 }
 
 body {
-  background: var(--background);
+  background: var(--color-canvas);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-button,
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 20%, transparent);
+}
+
 input,
+textarea,
 select,
-textarea {
+button {
   font: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
 }
