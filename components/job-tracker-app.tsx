@@ -86,6 +86,7 @@ export function JobTrackerApp() {
             </div>
             <div className="flex gap-3">
               <input
+                aria-label="Search applications"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search company, role, or location"
